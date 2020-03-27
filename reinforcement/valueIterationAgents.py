@@ -63,8 +63,9 @@ class ValueIterationAgent(ValueEstimationAgent):
         # Write value iteration code here
         "*** YOUR CODE HERE ***"
         stateList = self.mdp.getStates()
+        iterationIndex = 0
 
-        for iteration in range(self.iterations):
+        while iterationIndex < self.iterations:
             valueIteration = util.Counter()
 
             for state in stateList:
@@ -78,6 +79,7 @@ class ValueIterationAgent(ValueEstimationAgent):
                         maxValue = qValue
                         valueIteration[state] = maxValue
 
+            iterationIndex += 1
             self.values = valueIteration
 
     def getValue(self, state):
